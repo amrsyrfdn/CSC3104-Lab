@@ -1,7 +1,7 @@
-/*AMIR SYARIFUDDIN BIN HASBULLAH
-  224300
-  LAB1Q2
- */
+/* AMIR SYARIFUDDIN BIN HASBULLAH
+   224300
+   LAB1Q2
+*/
 package com.labprojects.csc3104lab.Lab1;
 
 import javafx.application.Application;
@@ -15,40 +15,55 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class  Lab1Q2 extends Application {
+// Main class extending Application to create JavaFX application
+public class Lab1Q2 extends Application {
+
     @Override // Override the start method in the Application class
     public void start(Stage primaryStage) {
+        // Create a GridPane layout
         GridPane pane = new GridPane();
-        pane.setAlignment(Pos.CENTER);
-        pane.setHgap(5.5);
-        pane.setVgap(5.5);
-        pane.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
+        pane.setAlignment(Pos.CENTER); // Set the pane alignment to center
+        pane.setHgap(5.5); // Set the horizontal gap between nodes
+        pane.setVgap(5.5); // Set the vertical gap between nodes
+        pane.setPadding(new Insets(11.5, 12.5, 13.5, 14.5)); // Set padding around the grid
 
+        // Add label and text field for name input
         pane.add(new Label("Name"), 0, 0);
         TextField namefield = new TextField();
         pane.add(namefield, 1, 0);
+
+        // Add label and text field for weight input
         pane.add(new Label("Weight (Kg)"), 0, 1);
         TextField weightfield = new TextField();
         pane.add(weightfield, 1, 1);
+
+        // Add label and text field for height input
         pane.add(new Label("Height (m)"), 0, 2);
-        TextField heightfield = new TextField ();
+        TextField heightfield = new TextField();
         pane.add(heightfield, 1, 2);
 
+        // Create and add the "Calculate" button
         Button button = new Button("Calculate");
         pane.add(button, 1, 3);
-        GridPane.setHalignment(button, HPos.RIGHT);
+        GridPane.setHalignment(button, HPos.RIGHT); // Align the button to the right
 
-        Label result = new Label ();
-        pane.add(result, 0,3,2,1);
-        GridPane.setHalignment(result, HPos.LEFT);
+        // Create a label to display the result
+        Label result = new Label();
+        pane.add(result, 0, 3, 2, 1); // Span the result label over 2 columns
+        GridPane.setHalignment(result, HPos.LEFT); // Align the result to the left
 
-        button.setOnAction(e ->{
-            try{
+        // Set action for the button when clicked
+        button.setOnAction(e -> {
+            try {
+                // Parse weight and height values from the text fields
                 double weight = Double.parseDouble(weightfield.getText());
                 double height = Double.parseDouble(heightfield.getText());
-                double bmi = weight/(height*height);
-                result.setText(String.format(namefield.getText()+"'s BMI : %.2f",bmi));
+
+                // Calculate BMI and display it in the result label
+                double bmi = weight / (height * height);
+                result.setText(String.format(namefield.getText() + "'s BMI : %.2f", bmi));
             } catch (Exception ex) {
+                // Handle any invalid input and display error message
                 result.setText("Invalid Input");
             }
         });
@@ -60,11 +75,9 @@ public class  Lab1Q2 extends Application {
         primaryStage.show(); // Display the stage
     }
 
-    /**
-     * The main method is only needed for the IDE with limited
-     * JavaFX support. Not needed for running from the command line.
-     */
+    // The main method is only needed for the IDE with limited JavaFX support.
+    // Not needed for running from the command line.
     public static void main(String[] args) {
-        launch(args);
+        launch(args); // Launch the JavaFX application
     }
 }
