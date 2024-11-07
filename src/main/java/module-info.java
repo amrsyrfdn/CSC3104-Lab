@@ -7,9 +7,9 @@ module com.labprojects.csc3104lab {
     exports com.labprojects.csc3104lab;
     opens com.labprojects.csc3104lab.Lab1 to javafx.fxml;
     exports com.labprojects.csc3104lab.Lab1;
-    /*opens com.labprojects.csc3104lab.Lab2 to javafx.fxml;
+    opens com.labprojects.csc3104lab.Lab2 to javafx.fxml;
     exports com.labprojects.csc3104lab.Lab2;
-    opens com.labprojects.csc3104lab.Lab3 to javafx.fxml;
+    /*opens com.labprojects.csc3104lab.Lab3 to javafx.fxml;
     exports com.labprojects.csc3104lab.Lab3;
     opens com.labprojects.csc3104lab.Lab4 to javafx.fxml;
     exports com.labprojects.csc3104lab.Lab4;
