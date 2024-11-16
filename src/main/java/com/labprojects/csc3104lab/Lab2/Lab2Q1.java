@@ -1,6 +1,6 @@
 /* AMIR SYARIFUDDIN BIN HASBULLAH
    224300
-   LAB1Q2
+   LAB2Q1
 */
 package com.labprojects.csc3104lab.Lab2;
 
