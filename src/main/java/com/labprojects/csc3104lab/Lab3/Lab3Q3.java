@@ -14,41 +14,58 @@ import javafx.stage.Stage;
 import java.util.Date;
 import java.util.Random;
 
-public class Lab3Q3 extends Application{
-    private int n = 0;
-    private Pane pane;
-    private final Date start = new Date();
+public class Lab3Q3 extends Application {
+    private int n = 0; // Counter to track the number of clicks
+    private Pane pane; // Pane to hold all elements in the scene
+    private final Date start = new Date(); // Track the start time of the game
+
     @Override
-    public void start (Stage primaryStage){
+    public void start(Stage primaryStage) {
+        // Initialize the pane and set its background color
         pane = new Pane();
         pane.setStyle("-fx-background-color: white;");
 
+        // Create a Random object to generate random values
         Random random = new Random();
-        Circle circle = new Circle(10);
-        circle.setCenterX(random.nextDouble()* pane.getWidth());
-        circle.setCenterY(random.nextDouble()* pane.getWidth());
-        circle.setFill(Color.color(random.nextDouble(),random.nextDouble(),random.nextDouble()));
-        pane.getChildren().add(circle);
 
-        circle.setOnMouseClicked(e->{
-            circle.setFill(Color.color(random.nextDouble(),random.nextDouble(),random.nextDouble()));
-            circle.setCenterX(random.nextDouble()* pane.getWidth());
-            circle.setCenterY(random.nextDouble()* pane.getWidth());
+        // Create a circle with an initial random position and color
+        Circle circle = new Circle(10); // Circle with radius 10
+        circle.setCenterX(random.nextDouble() * pane.getWidth()); // Random X-coordinate
+        circle.setCenterY(random.nextDouble() * pane.getWidth()); // Random Y-coordinate
+        circle.setFill(Color.color(random.nextDouble(), random.nextDouble(), random.nextDouble())); // Random color
+        pane.getChildren().add(circle); // Add the circle to the pane
+
+        // Set an event handler for mouse clicks on the circle
+        circle.setOnMouseClicked(e -> {
+            // Change the circle's color to a new random color
+            circle.setFill(Color.color(random.nextDouble(), random.nextDouble(), random.nextDouble()));
+
+            // Move the circle to a new random position
+            circle.setCenterX(random.nextDouble() * pane.getWidth());
+            circle.setCenterY(random.nextDouble() * pane.getWidth());
+
+            // Increment the click counter
             n++;
-            if (n==20){
+
+            // If the circle is clicked 20 times, end the game
+            if (n == 20) {
+                // Remove the circle from the pane
                 pane.getChildren().remove(circle);
+
+                // Calculate the time spent playing the game
                 Date end = new Date();
-                long timeSpent = end.getTime()- start.getTime();
-                Label label = new Label("Time spent is "+timeSpent+" milliseconds");
-                pane.getChildren().add(label);
+                long timeSpent = end.getTime() - start.getTime();
+
+                // Display a label with the time spent in milliseconds
+                Label label = new Label("Time spent is " + timeSpent + " milliseconds");
+                pane.getChildren().add(label); // Add the label to the pane
             }
         });
 
-        // Create a scene with the GridPane layout and set the stage
-        Scene scene = new Scene(pane,400,400);
-        primaryStage.setTitle("Circle Game"); // Set the stage title
-        primaryStage.setScene(scene); // Place the scene in the stage
+        // Create a scene with the pane and set the stage
+        Scene scene = new Scene(pane, 400, 400); // Scene size: 400x400 pixels
+        primaryStage.setTitle("Circle Game"); // Set the title of the window
+        primaryStage.setScene(scene); // Attach the scene to the stage
         primaryStage.show(); // Display the stage
-
     }
 }
