@@ -1,3 +1,7 @@
+/* AMIR SYARIFUDDIN BIN HASBULLAH
+   224300
+   LAB5Q1
+ */
 package com.labprojects.csc3104lab.Lab5.Q1;
 
 import javafx.application.Application;

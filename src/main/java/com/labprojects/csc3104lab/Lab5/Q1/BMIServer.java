@@ -1,3 +1,7 @@
+/* AMIR SYARIFUDDIN BIN HASBULLAH
+   224300
+   LAB5Q1
+ */
 package com.labprojects.csc3104lab.Lab5.Q1;
 
 import javafx.application.Application;
@@ -6,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import javafx.scene.control.TextArea;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
