@@ -1,3 +1,7 @@
+/* AMIR SYARIFUDDIN BIN HASBULLAH
+   224300
+   LAB6Q1
+ */
 package com.labprojects.csc3104lab.Lab6.Q1V2;
 
 import java.rmi.*;
